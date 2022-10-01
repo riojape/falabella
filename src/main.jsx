@@ -6,11 +6,11 @@ import FalabellaPovider from "./context/FalabellaPovider";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <FalabellaPovider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </FalabellaPovider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <FalabellaPovider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </FalabellaPovider>
+  // </React.StrictMode>
 );
