@@ -1,10 +1,14 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { FalabellaReducer, initialStore } from "./FalabellaReducer";
 
 export const FalabellaContext = createContext();
 
 const FalabellaPovider = ({ children }) => {
   const [store, dispatch] = useReducer(FalabellaReducer, initialStore);
+
+  useEffect(() => {
+    console.log("FalabellaContext");
+  });
 
   return (
     <FalabellaContext.Provider value={{ store, dispatch }}>

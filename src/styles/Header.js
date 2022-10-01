@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -6,6 +7,7 @@ export const Container = styled.div`
   height: 100px;
   background-color: #ff9401;
   position: relative;
+  z-index: 20;
 
   @media (min-width: 1024px) {
     height: 70px;
@@ -132,6 +134,7 @@ export const IconSearch = styled(FontAwesomeIcon)`
 `;
 export const Login = styled.div`
   cursor: pointer;
+  position: relative;
   @media (min-width: 1024px) {
     display: flex;
     justify-content: center;
@@ -198,4 +201,106 @@ export const IconLow = styled(FontAwesomeIcon)`
   @media (min-width: 1024px) {
     display: flex;
   }
+`;
+export const Position = styled.div`
+  position: absolute;
+  right: -75px;
+  top: 37px;
+`;
+
+/************  FORM LOGIN  ***********/
+export const Form = styled.div`
+  height: 500px;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 37px 30px 34px;
+  border-radius: 10px;
+  color: #767676;
+  position: relative;
+
+  @media (min-width: 500px) {
+    padding: 37px 50px 34px;
+  }
+`;
+export const FormHeader = styled.div`
+  display: flex;
+  gap: 10px;
+  height: 61px;
+`;
+export const FormMain = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const FormFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  div {
+    margin: 20px 0;
+  }
+  p a {
+    color: #495867;
+  }
+`;
+export const Title = styled.h3`
+  color: #333;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 29px;
+`;
+export const FormField = styled.div`
+  height: 86px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+export const LabelLogin = styled.label`
+  height: 17px;
+  margin-bottom: 8px;
+  line-height: 17px;
+  font-size: 1.3rem;
+`;
+export const InputLogin = styled.input`
+  height: 37px;
+  line-height: 17px;
+  font-size: 1.3rem;
+  border-width: 0 0 1px;
+  border-color: #767676;
+  font-family: "Lato", sans-serif;
+  padding: 14px 0 5px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+export const Restore = styled(Link)`
+  height: 17px;
+  width: 140px;
+  margin-top: 8px;
+  border-bottom: 1px solid #495867;
+  color: #495867;
+  text-decoration: none;
+  font-size: 1.3rem;
+`;
+export const Button = styled.button`
+  width: 100%;
+  height: 45px;
+  background-color: #ff6200;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  border-radius: 23px;
+  font-size: 1.9rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 23px;
+  cursor: pointer;
+  margin: 32px 0 0 0;
+`;
+export const Delete = styled(FontAwesomeIcon)`
+  font-size: 2rem;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
 `;

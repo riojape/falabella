@@ -1,7 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled, { css } from "styled-components";
 
-export const BoxMenu = styled.div`
+export const ItemMenu = styled.li`
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 40px;
+  color: #495867;
+  letter-spacing: 0;
+  list-style: none;
+  height: 40px;
+  padding: 0 24px;
+  cursor: pointer;
+  :hover {
+    background-color: #e8e8ff;
+  }
+`;
+export const BoxMenu = styled.ul`
   width: 240px;
   border-radius: 3px;
   padding: 24px 0px;
@@ -14,43 +28,30 @@ export const BoxMenu = styled.div`
     content: "";
     width: 0;
     height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 12px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
     position: absolute;
-    top: -12px;
+    top: -10px;
     ${({ before }) => {
       switch (before) {
         case "center":
           return css`
-            right: calc(50% - 12px);
+            right: calc(50% - 10px);
           `;
         case "right":
           return css`
-            right: calc(50% - 48px);
+            right: calc(50% - 40px);
           `;
         case "left":
           return css`
-            right: calc(50% + 36px);
+            right: calc(50% + 30px);
           `;
         default:
           return css`
-            rigth: calc(50% + 36px);
+            rigth: calc(50% + 30px);
           `;
       }
     }}
-`;
-export const Item = styled.li`
-  width: 100%;
-  font-size: 1.4rem;
-  line-height: 40px;
-  color: #495867;
-  letter-spacing: 0;
-  list-style: none;
-  height: 40px;
-  padding: 0 24px;
-  cursor: pointer;
-  :hover {
-    background-color: #e8e8ff;
   }
 `;

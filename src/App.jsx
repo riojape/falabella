@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Header from "./components/Header/Header";
-import Menu from "./components/Header/Menu";
+import Menu from "./components/Header/MenuLogin";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Menu />
     </div>
   );
 }

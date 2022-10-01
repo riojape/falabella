@@ -4,7 +4,9 @@ import {
   faChevronDown,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useRef } from "react";
+import useOusiteClick from "../../hooks/useOusiteClick";
 import {
   BoxCart,
   BoxIcon,
@@ -20,18 +22,38 @@ import {
   Login,
   MenuCenter,
   MenuLeft,
+  Position,
   Right,
   Search,
 } from "../../styles/Header";
+import { BoxMenu, ItemMenu } from "../../styles/Menu";
+import Modal from "../Modal/Modal";
+import FormLogin from "./FormLogin";
+import MenuLogin from "./MenuLogin";
+import Menu from "./MenuLogin";
+import Searcher from "./Searcher";
 
 const Header = () => {
-  /*
-  const [desktop, setDesktop] = useState("");
-  const start = (e) => {
-    setDesktop(e.target.innerWidth);
+  const [menuLogin, setMenuLogin] = useState(false);
+  const [formLogin, setFormLogin] = useState(false);
+  const [menuRef] = useOusiteClick(setMenuLogin);
+  const [formRef] = useOusiteClick(setFormLogin);
+  const onMenuLogin = () => {
+    setMenuLogin(true);
   };
-  window.addEventListener("resize", start);
-  console.log(desktop);*/
+  const onFormLogin = () => {
+    setFormLogin(true);
+    setMenuLogin(false);
+  };
+
+  const closeFormLogin = useCallback(() => {
+    setFormLogin(false);
+  }, []);
+
+  useEffect(() => {
+    console.log("Header");
+  });
+
   return (
     <Container>
       <Left>
@@ -40,26 +62,27 @@ const Header = () => {
       </Left>
       <Center>
         <MenuCenter icon={faBars} />
-        <Search>
-          <Input placeholder="Buscar en falabella.com" />
-          <BoxIcon>
-            <IconSearch icon={faMagnifyingGlass} />
-          </BoxIcon>
-        </Search>
+        <Searcher />
       </Center>
       <Right>
-        <Login>
-          <p>Inicio sesión</p>
-          <p>
+        <Login ref={menuRef}>
+          <p onClick={onFormLogin}>Inicio sesión</p>
+          <p onClick={onMenuLogin}>
             Hola!, <br /> Inicia sesión
           </p>
-          <IconLow icon={faChevronDown} />
+          <IconLow icon={faChevronDown} onClick={onMenuLogin} />
+          {menuLogin && <MenuLogin onFormLogin={onFormLogin} />}
         </Login>
         <BoxCart>
           <Cart icon={faCartShopping} />
           <Counter>2</Counter>
         </BoxCart>
       </Right>
+      {formLogin && (
+        <Modal>
+          <FormLogin formRef={formRef} close={closeFormLogin} />
+        </Modal>
+      )}
     </Container>
   );
 };
