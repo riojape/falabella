@@ -235,7 +235,7 @@ export const FormFooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   div {
     margin: 20px 0;
   }
@@ -259,12 +259,12 @@ export const LabelLogin = styled.label`
   height: 17px;
   margin-bottom: 8px;
   line-height: 17px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 `;
 export const InputLogin = styled.input`
   height: 37px;
   line-height: 17px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   border-width: 0 0 1px;
   border-color: #767676;
   font-family: "Lato", sans-serif;
